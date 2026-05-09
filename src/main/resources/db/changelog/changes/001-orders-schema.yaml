@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-orders
+      author: sazonov
+      changes:
+        - createTable:
+            tableName: orders
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP WITH TIME ZONE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(16)
+                  constraints:
+                    nullable: false
+        - createIndex:
+            indexName: idx_orders_status_created_at_id
+            tableName: orders
+            columns:
+              - column:
+                  name: status
+              - column:
+                  name: created_at
+              - column:
+                  name: id

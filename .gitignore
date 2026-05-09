@@ -1,0 +1,13 @@
+target/
+*.jar
+*.class
+.mvn/wrapper/
+
+.idea/
+*.iml
+.vscode/
+.fleet/
+out/
+
+.DS_Store
+*.log
