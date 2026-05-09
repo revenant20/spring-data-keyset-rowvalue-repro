@@ -17,6 +17,11 @@ HQL tuple comparison.
 
 Same result, same `Window<T>` API, ~2000× difference at depth.
 
+> **Note on numbers.** The `mvn test` flow seeds 50 000 rows by default, which already
+> shows the Filter vs Index Cond split in EXPLAIN (~7 ms vs ~0.05 ms in the test run).
+> The 1M-row figures above were measured separately; reproduce them by raising the
+> `ROWS` constant in `KeysetSqlShapeTest` (the test will take longer).
+
 ## Run
 
 Requires Java 25, Maven, and Docker (Testcontainers needs it).
